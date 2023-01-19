@@ -1,0 +1,22 @@
+{
+  "name": "apirestchallenge",
+  "version": "1.0.0",
+  "description": "class 4 node js challenge, desafio-latam academy",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon app"
+  },
+  "keywords": [],
+  "author": "Alejandro Quiñones",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0",
+    "pg-format": "^1.0.4"
+  }
+}
