@@ -57,12 +57,17 @@ const Hateos = parameter => {
 
     const results = parameter.map( params => (
         {
+            href: `joya/${params.id}`,
             name: params.nombre,
-            href: `/joya/${params.id}`
+            category: params.categoria,
+            metal: params.metal,
+            price: params.precio,
+            stock: params.stock
+
         }
     )).slice(0, 2)
 
-    const total = parameter.length
+    const total = results.length
     const HATEOS = {
         total,
         results
