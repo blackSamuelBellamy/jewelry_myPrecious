@@ -21,18 +21,21 @@ const mostrarJoya = async id => {
 }
 
 const filtrarJoyas = async ({ precio_min, precio_max, categoria, metal }) => {
-    if (isNaN(precio_min) || isNaN(precio_max))
-        throw new Error('Precio debe ser un número sin otros caracteres')
+    if (precio_min && isNaN(precio_min))
+    throw new Error('Precio mínimo debe ser un número sin otros caracteres')
+
+    if (precio_max && isNaN(precio_max))
+    throw new Error('Precio máximo debe ser un número sin otros caracteres')
 
     const tipos = ['aros', 'anillo', 'collar']
 
-    if (!tipos.includes(categoria))
-        throw new Error(`No trabajamos con ${categoria}, intenta con aros, anillo o collar`)
+    if (categoria && !tipos.includes(categoria))
+    throw new Error(`No trabajamos con ${categoria}, intenta con aros, anillo o collar`)
 
     const metalTipo = ['oro', 'plata']
 
-    if (!metalTipo.includes(metal))
-        throw new Error('Solo trabajamos con oro y plata, no con ' + metal)
+    if (metal && !metalTipo.includes(metal))
+    throw new Error('Solo trabajamos con oro y plata, no con ' + metal)
 
     let fullCommand = []
     let values = []
@@ -61,7 +64,7 @@ const filtrarJoyas = async ({ precio_min, precio_max, categoria, metal }) => {
 const Hateos = parameter => {
     const results = parameter.map(params => (
         {
-            href: `http://jewelrymyprecious.up.railway.app/joya/${params.id}`,
+            href: `http://localhost:3000/joya/${params.id}`,
             name: params.nombre,
             category: params.categoria,
             metal: params.metal,
