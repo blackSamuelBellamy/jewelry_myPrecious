@@ -3,7 +3,7 @@ const cors = require('cors')
 const message = require('./src/components/message')
 const mostrar = require('./src/routes/indexRoutes')
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 app.use(cors())
 

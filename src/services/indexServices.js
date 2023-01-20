@@ -2,9 +2,8 @@ const format = require('pg-format')
 const pool = require('../dataBase/conexion')
 
 const mostrar = async ({ limits = 2, page = 1, order_by = 'id_ASC' }) => {
-
     if (limits <= 0 || isNaN(limits))
-        throw new Error('El límite debe ser un número mayor a cero 👌')
+    throw new Error('El límite debe ser un número mayor a cero 👌')
 
     const [column, forma] = order_by.split('_')
     const offset = (page - 1) * limits
@@ -22,9 +21,8 @@ const mostrarJoya = async id => {
 }
 
 const filtrarJoyas = async ({ precio_min, precio_max, categoria, metal }) => {
-
     if (isNaN(precio_min) || isNaN(precio_max))
-        throw new Error('Precio debe ser un número sin otros carácteres')
+        throw new Error('Precio debe ser un número sin otros caracteres')
 
     const tipos = ['aros', 'anillo', 'collar']
 
@@ -61,20 +59,18 @@ const filtrarJoyas = async ({ precio_min, precio_max, categoria, metal }) => {
 }
 
 const Hateos = parameter => {
-    let count = 0
-    const results = parameter.map( params => (
-        
+    const results = parameter.map(params => (
         {
-            href: `http://localhost:3000/joya/${params.id}`,
+            href: `http://jewelrymyprecious.up.railway.app/joya/${params.id}`,
             name: params.nombre,
             category: params.categoria,
             metal: params.metal,
             price: params.precio,
             stock: params.stock
-
         }
-    )).slice(0, 2)
-    
+    ))
+
+    let count = 0
     results.map(cantidad => count += cantidad.stock)
 
     const totalJoyas = results.length
@@ -83,9 +79,8 @@ const Hateos = parameter => {
         totalJoyas,
         stockTotal,
         results
-
     }
     return HATEOS
-} 
+}
 
 module.exports = { mostrar, mostrarJoya, filtrarJoyas, Hateos }

@@ -2,15 +2,15 @@ require('colors')
 
 const message = (port) => {
     console.clear()
-    console.log('============================'.blue)
-    console.log(`   SERVER ON PORT ${port}...`.yellow)
-    console.log('============================'.blue)
+    console.log('============================'.green)
+    console.log(`   SERVER ON PORT ${port}...   `.bgWhite.black)
+    console.log('============================'.green)
     console.log(`  
      ─▌█──║─║╔═║─║─╔═╗─
      ─███─╠═╣╠═║─║─║─║─
      ─▐█▐─║─║╚═╚═╚═╚═╝─
      ─▐▐───────────────
-     ─▐▐─────────────── `.green)
+     ─▐▐─────────────── `.cyan)
 }
 
 module.exports = message
