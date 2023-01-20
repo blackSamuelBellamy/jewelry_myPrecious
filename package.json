@@ -8,7 +8,7 @@
     "start": "npx nodemon app"
   },
   "keywords": [],
-  "author": "Alejandro Quiñones",
+  "author": "Cristobal Díaz, Gustavo Lopez, David Pirul, Alejandro Quiñones",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
