@@ -2,7 +2,7 @@
 
 ### Autores:
 
-##### - Cristobal Díaz
-##### - Gustavo Lopez
-##### - David Pirul
-##### - Alejandro Quiñones
+- Cristobal Díaz
+- Gustavo Lopez
+- David Pirul
+- Alejandro Quiñones
