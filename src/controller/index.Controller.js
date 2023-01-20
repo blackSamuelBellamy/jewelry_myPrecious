@@ -1,4 +1,4 @@
-const { mostrar, filtrarJoyas, Hateos } = require('../services/indexServices')
+const { mostrar, filtrarJoyas, Hateos, mostrarJoya } = require('../services/indexServices')
 
 const controller = {
 
@@ -20,13 +20,25 @@ const controller = {
         }
     },
 
+    listarJoya: async (req, res) => {
+        try {
+            const { id } = req.params
+            const joya = await mostrarJoya(id)
+            res.status(200).json(joya)
+
+        } catch (e) {
+            res.status(500).send(e.message)
+        }
+
+    },
+
     filtrar: async (req, res) => {
         try {
             const queryStrings = req.query
             const filtrado = await filtrarJoyas(queryStrings)
             filtrado.length === 0 ? res.status(200)
-            .json('No encontramos lo que buscas, Intenta otros parámetos para poder ayudarte'):
-            res.status(200).json(filtrado)
+                .json('No encontramos lo que buscas, Intenta otros parámetos para poder ayudarte') :
+                res.status(200).json(filtrado)
 
         } catch (e) {
             res.status(500).send(e.message)

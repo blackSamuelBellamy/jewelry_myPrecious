@@ -14,6 +14,13 @@ const mostrar = async ({ limits = 2, page = 1, order_by = 'id_ASC' }) => {
     return joyas
 }
 
+const mostrarJoya = async id => {
+    const command = 'SELECT * FROM inventario WHERE id = $1;'
+    const value = [id]
+    const { rows: joya } = await pool.query(command, value)
+    return joya
+}
+
 const filtrarJoyas = async ({ precio_min, precio_max, categoria, metal }) => {
 
     if (isNaN(precio_min) || isNaN(precio_max))
@@ -58,7 +65,7 @@ const Hateos = parameter => {
     const results = parameter.map( params => (
         
         {
-            href: `joya/${params.id}`,
+            href: `http://localhost:3000/joya/${params.id}`,
             name: params.nombre,
             category: params.categoria,
             metal: params.metal,
@@ -81,4 +88,4 @@ const Hateos = parameter => {
     return HATEOS
 } 
 
-module.exports = { mostrar, filtrarJoyas, Hateos }
+module.exports = { mostrar, mostrarJoya, filtrarJoyas, Hateos }
