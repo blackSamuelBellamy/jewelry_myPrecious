@@ -54,8 +54,9 @@ const filtrarJoyas = async ({ precio_min, precio_max, categoria, metal }) => {
 }
 
 const Hateos = parameter => {
-
+    let count = 0
     const results = parameter.map( params => (
+        
         {
             href: `joya/${params.id}`,
             name: params.nombre,
@@ -66,10 +67,14 @@ const Hateos = parameter => {
 
         }
     )).slice(0, 2)
+    
+    results.map(cantidad => count += cantidad.stock)
 
-    const total = results.length
+    const totalJoyas = results.length
+    const stockTotal = count
     const HATEOS = {
-        total,
+        totalJoyas,
+        stockTotal,
         results
 
     }
